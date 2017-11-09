@@ -3,6 +3,9 @@
   <persistence-unit name="PU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>atelierjpa.Film</class>
+    <class>atelierjpa.Acteurs</class>
+    <class>atelierjpa.Chapitre</class>
+    <class>atelierjpa.Evenement_de_sortie</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/sample"/>
       <property name="javax.persistence.jdbc.user" value="app"/>
