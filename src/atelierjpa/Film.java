@@ -11,6 +11,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -34,6 +36,11 @@ public class Film implements Serializable {
     
     @Column(name="annee_de_sortie")
     private int anneeSortie;
+
+    @JoinColumn(name="film_evenement")
+    @OneToOne
+    private Evenement_de_sortie evenementDeSortie ;
+    
 
     public Film(String titre, String realisateur, int anneeSortie) {
         this.titre = titre;

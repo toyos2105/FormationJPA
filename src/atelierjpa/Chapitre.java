@@ -6,6 +6,7 @@
 package atelierjpa;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -30,6 +31,10 @@ public class Chapitre implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+    
+    @Column(name="film", length=50)
+    private int film;
+    
 
     @Override
     public int hashCode() {

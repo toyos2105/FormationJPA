@@ -6,10 +6,12 @@
 package atelierjpa;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -30,6 +32,14 @@ public class Evenement_de_sortie implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+    
+    
+    @OneToOne(mappedBy="evenementDeSortie")
+    @Column(name="film")
+    private String film;
+    
+    
+    
 
     @Override
     public int hashCode() {
