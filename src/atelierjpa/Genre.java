@@ -36,6 +36,9 @@ public class Genre implements Serializable {
     
     @ManyToMany(mappedBy="genres")
     List<Film> films = new ArrayList<Film>();
+    
+    @ManyToMany(mappedBy="genres")
+    List<Serie> series = new ArrayList<Serie>();
 
     @Override
     public int hashCode() {

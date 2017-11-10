@@ -8,11 +8,11 @@ package atelierjpa;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 /**
@@ -20,36 +20,30 @@ import javax.persistence.ManyToMany;
  * @author Formation
  */
 @Entity
-public class Personne implements Serializable {
+public class Serie implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
-    @Column(name="nom_realisateur", length=50)
-    private String realisateur;
+    @JoinTable(name="series_realisateurs")
+    @ManyToMany
+    List<Personne> realisateurs = new ArrayList<>();
     
-    @ManyToMany(mappedBy="realisateurs")
-    List<Film> films_realises = new ArrayList<Film>();
-
-    @ManyToMany(mappedBy="acteurs")
-    List<Film> films_joues = new ArrayList<Film>();
+    @JoinTable(name="series_acteurs")
+    @ManyToMany
+    List<Personne> acteurs = new ArrayList<>();
     
-    @ManyToMany(mappedBy="realisateurs")
-    List<Serie> series_realisees = new ArrayList<Serie>();
-
-    @ManyToMany(mappedBy="acteurs")
-    List<Serie> series_jouees = new ArrayList<Serie>();
+    @JoinTable(name="series_pays")
+    @ManyToMany
+    List<Pays> pays = new ArrayList<>();
     
-    public Personne() {
-    }
+    @JoinTable(name="series_genres")
+    @ManyToMany
+    List<Genre> genres = new ArrayList<>();
     
     
-    
-    
-    
-
     public Long getId() {
         return id;
     }
@@ -68,10 +62,10 @@ public class Personne implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Personne)) {
+        if (!(object instanceof Serie)) {
             return false;
         }
-        Personne other = (Personne) object;
+        Serie other = (Serie) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -80,7 +74,7 @@ public class Personne implements Serializable {
 
     @Override
     public String toString() {
-        return "atelierjpa.Acteurs[ id=" + id + " ]";
+        return "atelierjpa.Serie[ id=" + id + " ]";
     }
     
 }

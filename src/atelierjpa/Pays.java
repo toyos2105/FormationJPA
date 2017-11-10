@@ -29,6 +29,9 @@ public class Pays implements Serializable {
     @ManyToMany(mappedBy="pays")
     List<Film> films = new ArrayList<Film>();
     
+    @ManyToMany(mappedBy="pays")
+    List<Serie> series = new ArrayList<Serie>();
+    
     public Long getId() {
         return id;
     }

@@ -4,10 +4,14 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>atelierjpa.Film</class>
     <class>atelierjpa.Chapitre</class>
-    <class>atelierjpa.Evenement_de_sortie</class>
     <class>atelierjpa.Personne</class>
     <class>atelierjpa.Pays</class>
     <class>atelierjpa.Genre</class>
+    <class>atelierjpa.Lien</class>
+    <class>atelierjpa.EvenementDeSortie</class>
+    <class>atelierjpa.Episode</class>
+    <class>atelierjpa.Saison</class>
+    <class>atelierjpa.Serie</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/sample"/>
       <property name="javax.persistence.jdbc.user" value="app"/>

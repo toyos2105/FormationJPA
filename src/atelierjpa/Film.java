@@ -42,20 +42,20 @@ public class Film implements Serializable {
 
     @JoinColumn(name="film_evenement")
     @OneToOne
-    private Evenement_de_sortie evenementDeSortie ;
+    private EvenementDeSortie evenementDeSortie ;
     
     @OneToMany(mappedBy="film")
-    List<Chapitre> chapitres = new ArrayList<>();
-    
-    @JoinTable(name="realisateurs")
+    List<Lien> liens_film = new ArrayList<>();
+
+    @JoinTable(name="films_realisateurs")
     @ManyToMany
     List<Personne> realisateurs = new ArrayList<>();
     
-    @JoinTable(name="acteurs")
+    @JoinTable(name="films_acteurs")
     @ManyToMany
     List<Personne> acteurs = new ArrayList<>();
     
-    @JoinTable(name="pays")
+    @JoinTable(name="films_pays")
     @ManyToMany
     List<Pays> pays = new ArrayList<>();
     
