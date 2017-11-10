@@ -6,6 +6,8 @@
     <class>atelierjpa.Chapitre</class>
     <class>atelierjpa.Evenement_de_sortie</class>
     <class>atelierjpa.Personne</class>
+    <class>atelierjpa.Pays</class>
+    <class>atelierjpa.Genre</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/sample"/>
       <property name="javax.persistence.jdbc.user" value="app"/>

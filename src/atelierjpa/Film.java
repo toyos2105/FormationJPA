@@ -6,21 +6,24 @@
 package atelierjpa;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
 /**
  *
  * @author Formation
  */
 @Entity
-@Table(name="MesFilms")
 public class Film implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -41,19 +44,33 @@ public class Film implements Serializable {
     @OneToOne
     private Evenement_de_sortie evenementDeSortie ;
     
+    @OneToMany(mappedBy="film")
+    List<Chapitre> chapitres = new ArrayList<>();
+    
+    @JoinTable(name="realisateurs")
+    @ManyToMany
+    List<Personne> realisateurs = new ArrayList<>();
+    
+    @JoinTable(name="acteurs")
+    @ManyToMany
+    List<Personne> acteurs = new ArrayList<>();
+    
+    @JoinTable(name="pays")
+    @ManyToMany
+    List<Pays> pays = new ArrayList<>();
+    
+    @JoinTable(name="films_genres")
+    @ManyToMany
+    List<Genre> genres = new ArrayList<>();
+    
 
     public Film(String titre, String realisateur, int anneeSortie) {
         this.titre = titre;
         this.realisateur = realisateur;
         this.anneeSortie = anneeSortie;
     }
+    public Film(){}
     
-    
-    
-    
-    public Film(){
-        
-    }
     
     
     

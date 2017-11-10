@@ -47,9 +47,9 @@ public class JPATest {
 //        for(Film film : liste){
 //            System.out.println(film.getTitre());
 //        }
-        long fCount = (Long)myEm.createQuery("SELECT COUNT(f) FROM Film f WHERE f.realisateur='Réalisateur 1'").getSingleResult();
+        //long fCount = (Long)myEm.createQuery("SELECT COUNT(f) FROM Film f WHERE f.realisateur='Réalisateur 1'").getSingleResult();
        
-        System.out.println("nb = "+fCount);
+        //System.out.println("nb = "+fCount);
      
            
        

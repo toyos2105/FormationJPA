@@ -6,19 +6,20 @@
 package atelierjpa;
 
 import java.io.Serializable;
-import javax.persistence.Column;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToMany;
 
 /**
  *
  * @author Formation
  */
 @Entity
-public class Evenement_de_sortie implements Serializable {
+public class Genre implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -33,16 +34,8 @@ public class Evenement_de_sortie implements Serializable {
         this.id = id;
     }
     
-    
-    @OneToOne(mappedBy="evenementDeSortie")
-
-    private Film film;
-
-    public Evenement_de_sortie() {
-    }
-    
-    
-    
+    @ManyToMany(mappedBy="genres")
+    List<Film> films = new ArrayList<Film>();
 
     @Override
     public int hashCode() {
@@ -54,10 +47,10 @@ public class Evenement_de_sortie implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Evenement_de_sortie)) {
+        if (!(object instanceof Genre)) {
             return false;
         }
-        Evenement_de_sortie other = (Evenement_de_sortie) object;
+        Genre other = (Genre) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -66,7 +59,7 @@ public class Evenement_de_sortie implements Serializable {
 
     @Override
     public String toString() {
-        return "atelierjpa.Evenement_de_sortie[ id=" + id + " ]";
+        return "atelierjpa.Genre[ id=" + id + " ]";
     }
     
 }

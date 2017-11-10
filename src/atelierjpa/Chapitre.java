@@ -6,11 +6,12 @@
 package atelierjpa;
 
 import java.io.Serializable;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -23,7 +24,11 @@ public class Chapitre implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
+   
+    @ManyToOne
+    @JoinColumn(name="chapitres")
+    private Film film;
+    
     public Long getId() {
         return id;
     }
@@ -32,8 +37,7 @@ public class Chapitre implements Serializable {
         this.id = id;
     }
     
-    @Column(name="film", length=50)
-    private int film;
+
     
 
     @Override

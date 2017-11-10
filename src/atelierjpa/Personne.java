@@ -6,11 +6,14 @@
 package atelierjpa;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 /**
  *
@@ -26,6 +29,16 @@ public class Personne implements Serializable {
     
     @Column(name="nom_realisateur", length=50)
     private String realisateur;
+    
+    @ManyToMany(mappedBy="realisateurs")
+    List<Film> films_realises = new ArrayList<Film>();
+
+    @ManyToMany(mappedBy="acteurs")
+    List<Film> films_joues = new ArrayList<Film>();
+    
+    public Personne() {
+    }
+    
     
     
     
