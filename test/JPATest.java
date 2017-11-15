@@ -23,22 +23,22 @@ public class JPATest {
 
         myEm.getTransaction().begin();
         
-        Film film1 = new Film("mon titre1 ","Réalisateur 1" , 1911);
-        Film film2 = new Film("mon titre2 ","Réalisateur 2" , 1922);
-        Film film3 = new Film("mon titre3 ","Réalisateur 3" , 1944);
-        Film film4 = new Film("mon titre4 ","Réalisateur 1" , 1944);
-        Film film5 = new Film("mon titre5 ","Réalisateur 5" , 1955);
-        
-        myEm.persist(film1);
-        myEm.persist(film2);
-        myEm.persist(film3);
-        myEm.persist(film4);
-        myEm.persist(film5);
+//        Film film1 = new Film("mon titre1 ",12 , 1911);
+//        Film film2 = new Film("mon titre2 ",15 , 1922);
+//        Film film3 = new Film("mon titre3 ",20 , 1944);
+//        Film film4 = new Film("mon titre4 ",25 , 1944);
+//        Film film5 = new Film("mon titre5 ",54 , 1955);
+//        
+//        myEm.persist(film1);
+//        myEm.persist(film2);
+//        myEm.persist(film3);
+//        myEm.persist(film4);
+//        myEm.persist(film5);
         
         //film2.setId(film3.getId());
         //myEm.merge(film2);
-        Film filmToSuppress = myEm.find(Film.class, 1L);
-        System.err.println("Titre1 = "+filmToSuppress.getTitre());
+        //Film filmToSuppress = myEm.find(Film.class, 1L);
+        //System.err.println("Titre1 = "+filmToSuppress.getTitre());
         //myEm.remove(filmToSuppress);
         //String qlString="UPDATE APP.MESFILMS SET NOM_TITRE='Titre modif' where ID=1";
         //int count = myEm.createQuery("UPDATE APP.MESFILMS SET NOM_TITRE='Titre modif' where ID=1L").executeUpdate();
@@ -51,7 +51,7 @@ public class JPATest {
        
         //System.out.println("nb = "+fCount);
      
-           
+        myEm.find(entityClass, myEm.1);
        
        
         myEm.getTransaction().commit();

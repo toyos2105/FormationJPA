@@ -35,7 +35,6 @@ public class EvenementDeSortie implements Serializable {
     
     
     @OneToOne(mappedBy="evenementDeSortie")
-
     private Film film;
 
     public EvenementDeSortie() {

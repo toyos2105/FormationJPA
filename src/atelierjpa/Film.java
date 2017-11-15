@@ -30,6 +30,8 @@ public class Film implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private int annee;
+    private int duree;
     
     @Column(name="nom_titre", length=50)
     private String titre;
@@ -64,10 +66,10 @@ public class Film implements Serializable {
     List<Genre> genres = new ArrayList<>();
     
 
-    public Film(String titre, String realisateur, int anneeSortie) {
+    public Film(String titre, int duree, int annee) {
         this.titre = titre;
-        this.realisateur = realisateur;
-        this.anneeSortie = anneeSortie;
+        this.annee = annee;
+        this.duree = duree;
     }
     public Film(){}
     
