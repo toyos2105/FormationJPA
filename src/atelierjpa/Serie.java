@@ -29,19 +29,19 @@ public class Serie implements Serializable {
     
     @JoinTable(name="series_realisateurs")
     @ManyToMany
-    List<Personne> realisateurs = new ArrayList<>();
+    private List<Personne> realisateurs = new ArrayList<>();
     
     @JoinTable(name="series_acteurs")
     @ManyToMany
-    List<Personne> acteurs = new ArrayList<>();
+    private List<Personne> acteurs = new ArrayList<>();
     
     @JoinTable(name="series_pays")
     @ManyToMany
-    List<Pays> pays = new ArrayList<>();
+    private List<Pays> pays = new ArrayList<>();
     
     @JoinTable(name="series_genres")
     @ManyToMany
-    List<Genre> genres = new ArrayList<>();
+    private List<Genre> genres = new ArrayList<>();
     
     
     public Long getId() {

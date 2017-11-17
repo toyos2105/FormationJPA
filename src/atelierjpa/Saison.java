@@ -27,7 +27,7 @@ public class Saison implements Serializable {
     private Long id;
     
     @OneToMany(mappedBy="saison")
-    List<Episode> episodes = new ArrayList<>();
+    private List<Episode> episodes = new ArrayList<>();
 
     public Long getId() {
         return id;

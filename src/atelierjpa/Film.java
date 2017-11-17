@@ -47,23 +47,23 @@ public class Film implements Serializable {
     private EvenementDeSortie evenementDeSortie ;
     
     @OneToMany(mappedBy="film")
-    List<Lien> liens_film = new ArrayList<>();
+    private List<Lien> liens_film = new ArrayList<>();
 
     @JoinTable(name="films_realisateurs")
     @ManyToMany
-    List<Personne> realisateurs = new ArrayList<>();
+    private List<Personne> realisateurs = new ArrayList<>();
     
     @JoinTable(name="films_acteurs")
     @ManyToMany
-    List<Personne> acteurs = new ArrayList<>();
+    private List<Personne> acteurs = new ArrayList<>();
     
     @JoinTable(name="films_pays")
     @ManyToMany
-    List<Pays> pays = new ArrayList<>();
+    private List<Pays> pays = new ArrayList<>();
     
     @JoinTable(name="films_genres")
     @ManyToMany
-    List<Genre> genres = new ArrayList<>();
+    private List<Genre> genres = new ArrayList<>();
     
 
     public Film(String titre, int duree, int annee) {

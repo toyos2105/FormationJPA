@@ -31,16 +31,16 @@ public class Personne implements Serializable {
     private String realisateur;
     
     @ManyToMany(mappedBy="realisateurs")
-    List<Film> films_realises = new ArrayList<Film>();
+    private List<Film> films_realises = new ArrayList<Film>();
 
     @ManyToMany(mappedBy="acteurs")
-    List<Film> films_joues = new ArrayList<Film>();
+    private List<Film> films_joues = new ArrayList<Film>();
     
     @ManyToMany(mappedBy="realisateurs")
-    List<Serie> series_realisees = new ArrayList<Serie>();
+    private List<Serie> series_realisees = new ArrayList<Serie>();
 
     @ManyToMany(mappedBy="acteurs")
-    List<Serie> series_jouees = new ArrayList<Serie>();
+    private List<Serie> series_jouees = new ArrayList<Serie>();
     
     public Personne() {
     }
